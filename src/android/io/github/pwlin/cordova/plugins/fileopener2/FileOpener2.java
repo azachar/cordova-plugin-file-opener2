@@ -107,12 +107,12 @@ public class FileOpener2 extends CordovaPlugin {
 					// https://stackoverflow.com/questions/9637629/can-we-install-an-apk-from-a-contentprovider/9672282#9672282
 					intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
 					Uri path;
-					if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+					// if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
 						path = Uri.fromFile(file);
-					} else {
-						Context context = cordova.getActivity().getApplicationContext();
-						path = FileProvider.getUriForFile(context, cordova.getActivity().getPackageName() + ".opener.provider", file);
-					}
+					// } else {
+					// 	Context context = cordova.getActivity().getApplicationContext();
+					// 	path = FileProvider.getUriForFile(context, cordova.getActivity().getPackageName() + ".opener.provider", file);
+					// }
 					intent.setDataAndType(path, contentType);
 					intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
